@@ -1,9 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+:root {
+  --font: "Raleway", sans-serif;
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --blue: hsl(228, 56%, 26%);
+  --storage-bar-bg: hsl(230, 55%, 18%);
+  --dark-blue: hsl(229, 57%, 11%);
+  --orange: hsl(6, 100%, 80%);
+  --pink: hsl(335, 100%, 65%);
+  --white: hsl(0, 0%, 100%);
+  --color-gradient: linear-gradient(to right, var(--orange), var(--pink));
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles */
+
+body {
+  background-color: var(--dark-blue);
+  background-image: url("../images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: var(--pale-blue);
+  font-family: var(--font);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  display: block;
+}
+
+/* Main Section */
+
+.main-container {
+  width: min(87.5%, 57.5rem);
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.brand,
+.storage {
+  background-color: var(--blue);
+}
+
+.brand {
+  padding: 2.5rem 8.25rem 2.5rem 2.5rem;
+  border-radius: 10px 100px 10px 10px;
+}
+
+.logo-container {
+  margin-bottom: 2rem;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-container {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container:hover {
+  cursor: pointer;
+}
+
+.icon-container:hover .icon {
+  fill: var(--white);
+}
+
+.storage {
+  padding: 2.5rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.section-heading {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.amount-used {
+  font-weight: 700;
+}
+
+.storage-bar-container {
+  width: 100%;
+  background-color: var(--storage-bar-bg);
+  padding: 2px;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.storage-bar {
+  width: 75%;
+  background: var(--color-gradient);
+  border-radius: 10px;
+  padding: 2px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.circle {
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.amounts-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.amount-remaining {
+  background-color: var(--white);
+  color: var(--grayish-blue);
+  letter-spacing: 0.075em;
+  padding: 1rem 1.5rem;
+  border-radius: 10px 10px 0 10px;
+  position: absolute;
+  top: -3rem;
+  right: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  line-height: 1;
+}
+
+.amount-remaining::before {
+  content: "";
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 30px solid var(--white);
+  border-left: 30px solid transparent;
+}
+
+.bold-number {
+  font-size: 2.5rem;
+  color: var(--dark-blue);
+}
+
 /* Footer Section */
 
 .attribution {
+  color: var(--pale-blue);
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 850px) {
+  body {
+    background-image: url("../images/bg-mobile.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .main-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .brand {
+    padding-right: 2.5rem;
+    width: 100%;
+  }
+
+  .storage {
+    padding: 2.5rem 2.5rem 4rem 2.5rem;
+  }
+
+  .amount-remaining {
+    width: min(90%, 11.5rem);
+    border-radius: 10px;
+    top: 9rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .amount-remaining::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .section-heading {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .brand {
+    padding: 1.5rem;
+  }
+
+  .storage {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+  }
+
+  .amount-remaining {
+    top: 7.5rem;
+  }
 }
