@@ -30,6 +30,7 @@ body {
   background-image: url("../images/bg-desktop.png");
   background-repeat: no-repeat;
   background-position: bottom;
+  background-size: 100% 52.5%;
   color: var(--pale-blue);
   font-family: var(--font);
   font-size: 14px;
