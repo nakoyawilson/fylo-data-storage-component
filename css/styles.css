@@ -11,6 +11,7 @@
   --pink: hsl(335, 100%, 65%);
   --white: hsl(0, 0%, 100%);
   --color-gradient: linear-gradient(to right, var(--orange), var(--pink));
+  --shadow: rgba(0, 0, 0, 0.175);
 }
 
 /* CSS Reset */
@@ -57,6 +58,7 @@ svg {
 .brand,
 .storage {
   background-color: var(--blue);
+  box-shadow: 0 2rem 5rem var(--shadow);
 }
 
 .brand {
